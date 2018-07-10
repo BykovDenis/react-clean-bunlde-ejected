@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiInput-root-1 MuiInput-underline-5 custom-input"
+>
+  <input
+    aria-invalid={undefined}
+    autoComplete={undefined}
+    autoFocus={undefined}
+    className="MuiInput-input-9"
+    defaultValue="once"
+    disabled={undefined}
+    id={undefined}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+    onKeyUp={undefined}
+    placeholder={undefined}
+    readOnly={undefined}
+    required={undefined}
+    rows={undefined}
+    type="text"
+    value="once"
+  />
+</div>
+`;

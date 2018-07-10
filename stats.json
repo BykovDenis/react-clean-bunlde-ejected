@@ -1,0 +1,19 @@
+Starting the development server...
+
+Compiled with warnings.
+
+./src/index.js
+  Line 19:  'process' is not defined  no-undef
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/index.js
+  Line 19:  'process' is not defined  no-undef
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+

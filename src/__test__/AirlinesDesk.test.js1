@@ -1,0 +1,53 @@
+import React from 'react';
+import configureStore from 'redux-mock-store';
+import { shallow, wrapper, mount } from 'enzyme';
+import Provider from 'react-redux/lib/components/Provider';
+import ConnectedAirlinesDesk, { AirlinesDesk } from '../containers/custom-data';
+import airlinesData from './mock/airlines.mock';
+import { getAirlinesFromAPI } from '../redux/actions';
+import '../setupTests';
+
+
+// Вставляем store прямиком в компонент
+//*****************************************************************************
+describe('>>>H O M E --- REACT-REDUX (Shallow + passing the {store} directly)',() => {
+
+  const initialState = {
+    airlines: {
+      filenames: {
+        airlines: 'airlines-from-aviation-edge-russia.json',
+      },
+      isLoadingAirlines: false,
+      errorLoadingAirlines: false,
+      textError: '',
+      airlinesData,
+    },
+    customData: {
+      customInputData: 'once',
+    }
+  };
+
+  const mockStore = configureStore();
+  let store, wrapper;
+
+  beforeEach(()=>{
+    store = mockStore(initialState);
+    wrapper = mount( <Provider store={store}><ConnectedAirlinesDesk /></Provider> );
+  })
+
+  it('+++ render the connected(SMART) component', () => {
+    expect(wrapper.find(ConnectedAirlinesDesk).length).toEqual(1);
+  });
+
+  it('+++ check Prop matches with initialState', () => {
+    expect(wrapper.find(AirlinesDesk).prop('airlines')).toEqual(initialState.airlines);
+  });
+
+  it('+++ check action on dispatching ', () => {
+    let action;
+    store.dispatch(getAirlinesFromAPI());
+    action = store.getActions();
+    expect(action[0].type).toBe('GET_AIRLINES_DATA_SUCCESS');
+  });
+
+});
